@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { motion } from 'motion/react';
 import { CURRICULUM } from '../data/curriculum';
 import { FloatingBg } from './FloatingBg';
@@ -27,7 +27,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
         </Button3D>
       </View>
 
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
             initial={{ opacity: 0, scale: 0.85, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.05 }}
-            style={{ width: '45%', minWidth: 200, maxWidth: 280 }}
+            style={{ width: '46%', minWidth: 130, maxWidth: 280 }}
           >
             <Tilt3DCard
               maxTilt={12}
@@ -71,7 +71,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
             initial={{ opacity: 0, scale: 0.85, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            style={{ width: '45%', minWidth: 200, maxWidth: 280 }}
+            style={{ width: '46%', minWidth: 130, maxWidth: 280 }}
           >
             <Tilt3DCard
               maxTilt={12}
@@ -96,7 +96,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
             initial={{ opacity: 0, scale: 0.85, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.15 }}
-            style={{ width: '45%', minWidth: 200, maxWidth: 280 }}
+            style={{ width: '46%', minWidth: 130, maxWidth: 280 }}
           >
             <Tilt3DCard
               maxTilt={12}
@@ -121,7 +121,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
             initial={{ opacity: 0, scale: 0.85, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            style={{ width: '45%', minWidth: 200, maxWidth: 280 }}
+            style={{ width: '46%', minWidth: 130, maxWidth: 280 }}
           >
             <Tilt3DCard
               maxTilt={12}
@@ -140,7 +140,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
             </Tilt3DCard>
           </motion.div>
         </View>
-      </View>
+      </ScrollView>
     </FloatingBg>
   );
 };
@@ -152,8 +152,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   container: {
-    flex: 1,
-    padding: 20,
+    padding: 16,
+    paddingBottom: 40,
     alignItems: 'center',
     justifyContent: 'center',
     maxWidth: 850,
@@ -161,32 +161,32 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    fontSize: 34,
+    fontSize: 28,
     fontWeight: '900',
     color: '#ffffff',
     textAlign: 'center',
-    marginBottom: 6,
+    marginBottom: 4,
     textShadowColor: 'rgba(0, 0, 0, 0.4)',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 8,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '700',
     color: '#a7f3d0',
-    marginBottom: 32,
+    marginBottom: 20,
   },
   catGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 20,
+    gap: 12,
     width: '100%',
   },
   card3D: {
     backgroundColor: 'rgba(15, 23, 42, 0.82)',
-    borderRadius: 28,
-    padding: 28,
+    borderRadius: 20,
+    padding: 18,
     alignItems: 'center',
     borderWidth: 2,
     borderColor: 'rgba(255, 255, 255, 0.15)',
@@ -206,22 +206,23 @@ const styles = StyleSheet.create({
     borderColor: '#a855f7',
   },
   cardIcon: {
-    fontSize: 52,
-    marginBottom: 12,
+    fontSize: 42,
+    marginBottom: 8,
     filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.3))',
   },
   cardTitle: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '900',
     color: '#ffffff',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   cardDesc: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '600',
     color: '#cbd5e1',
     textAlign: 'center',
-    lineHeight: 20,
+    lineHeight: 18,
   },
 });
+
 

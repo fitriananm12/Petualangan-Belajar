@@ -262,7 +262,8 @@ export const Canvas3DBackground: React.FC<Canvas3DBackgroundProps> = ({
       style={{
         position: 'relative',
         width: '100%',
-        minHeight: '100vh',
+        height: '100%',
+        minHeight: '100dvh',
         background: `radial-gradient(circle at 50% 20%, ${currentTheme.bgBottom} 0%, ${currentTheme.bgTop} 100%)`,
         overflow: 'hidden',
       }}
@@ -272,7 +273,8 @@ export const Canvas3DBackground: React.FC<Canvas3DBackgroundProps> = ({
           position: 'relative',
           zIndex: 1,
           width: '100%',
-          minHeight: '100vh',
+          height: '100%',
+          minHeight: '100dvh',
           display: 'flex',
           flexDirection: 'column',
         }}

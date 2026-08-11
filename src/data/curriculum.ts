@@ -261,15 +261,15 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 1: Menulis Huruf Vokal A",
           material: "Latih gerakan jemari membentuk huruf 'A'. Tarik garis miring kiri, miring kanan, dan garis datar di tengah.",
-          question: "Huruf vokal pertama dalam abjad adalah?",
-          options: ["A", "B", "E"],
+          question: "Tuliskan huruf vokal 'A' besar pada lembar kertas tulis!",
+          options: ["Huruf A", "Huruf B", "Huruf E"],
           correct: 0,
-          explanation: "Benar! 'A' adalah huruf vokal pertama."
+          explanation: "Benar! 'A' adalah huruf vokal pertama yang kamu tulis."
         },
         {
           title: "Pos 2: Menulis Suku Kata 'BA'",
           material: "Suku kata BA dibentuk dari konsonan B dan vokal A.",
-          question: "Gabungan huruf 'B' dan 'A' dibaca?",
+          question: "Tuliskan suku kata 'BA' pada lembar kertas tulis!",
           options: ["BA", "AB", "BU"],
           correct: 0,
           explanation: "Tepat! B + A dibaca BA."
@@ -277,7 +277,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 3: Menyusun Kata 'BUKU'",
           material: "Tulis kata 'BUKU' secara berurutan: B-U-K-U.",
-          question: "Susunan huruf yang benar untuk kata 'Buku' adalah?",
+          question: "Tuliskan kata 'BUKU' secara berurutan pada lembar kertas!",
           options: ["B - U - K - U", "K - U - B - U", "B - K - U - U"],
           correct: 0,
           explanation: "Hebat! B-U-K-U membentuk kata BUKU."
@@ -285,96 +285,96 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 4: Menulis Huruf Tegak Bersambung Dasar",
           material: "Garis tegak bersambung mengaitkan huruf tanpa terputus.",
-          question: "Lengkungan awal huruf 'a' tegak bersambung mirip bentuk?",
-          options: ["Lengkung lingkaran", "Garis lurus kaku", "Kotak tegak"],
+          question: "Cobalah tuliskan huruf tegak bersambung 'a' di lembar kertas!",
+          options: ["Huruf 'a' bersambung", "Huruf 'b' kaku", "Huruf 'c' kotak"],
           correct: 0,
-          explanation: "Benar! Membentuk lengkungan halus."
+          explanation: "Benar! Membentuk lengkungan halus bersambung."
         },
         {
           title: "Pos 5: Menulis Kata 'SAYA'",
           material: "Tuliskan S - A - Y - A dengan jarak huruf yang rapi.",
-          question: "Kata 'SAYA' terdiri dari berapa huruf?",
-          options: ["4 Huruf", "3 Huruf", "5 Huruf"],
+          question: "Tuliskan kata 'SAYA' pada lembar kertas tulis!",
+          options: ["Kata SAYA", "Kata KAMI", "Kata KITA"],
           correct: 0,
-          explanation: "Tepat! S, A, Y, A ada 4 huruf."
+          explanation: "Tepat! SAYA terdiri dari 4 huruf S-A-Y-A."
         },
         {
           title: "Pos 6: Menulis Huruf Kapital Awal Kalimat",
           material: "Huruf pertama di setiap awal kalimat WAJIB ditulis dengan huruf kapital (besar).",
-          question: "Penulisan awal kalimat yang benar adalah?",
-          options: ["Budi membaca buku.", "budi membaca buku.", "BUDI MEMBACA BUKU."],
+          question: "Tuliskan huruf 'B' kapital (besar) untuk awal kata 'Budi'!",
+          options: ["Huruf B Kapital", "Huruf b kecil", "Huruf d kecil"],
           correct: 0,
           explanation: "Benar! 'Budi' diawali huruf B kapital."
         },
         {
           title: "Pos 7: Menulis Tanda Baca Titik (.)",
           material: "Tuliskan tanda titik (.) di paling akhir kalimat.",
-          question: "Di mana letak tanda titik (.) saat menulis kalimat?",
-          options: ["Di akhir kalimat", "Di awal kalimat", "Di tengah kata"],
+          question: "Tuliskan tanda titik (.) di akhir kalimat pada lembar kertas!",
+          options: ["Tanda Titik (.)", "Tanda Tanya (?)", "Tanda Seru (!)"],
           correct: 0,
           explanation: "Tepat! Tanda titik ditulis di akhir kalimat."
         },
         {
           title: "Pos 8: Menulis Nama Sendiri",
           material: "Nama diri ditulis menggunakan huruf kapital di awal kata.",
-          question: "Penulisan nama diri yang rapi dan benar adalah?",
+          question: "Tuliskan nama diri 'ANI' dengan huruf awal kapital di kertas!",
           options: ["Ani", "ani", "aNi"],
           correct: 0,
-          explanation: "Benar! Huruf pertama 'Ani' kapital."
+          explanation: "Benar! Huruf pertama 'Ani' diawali kapital."
         },
         {
           title: "Pos 9: Menulis Kata Benda 'PENSIL'",
           material: "Ejaan P-E-N-S-I-L harus lengkap tanpa ada huruf yang tertinggal.",
-          question: "Huruf yang hilang pada 'P E N _ I L' adalah?",
-          options: ["S", "C", "K"],
+          question: "Tuliskan kata benda 'PENSIL' secara utuh pada lembar kertas!",
+          options: ["PENSIL", "PENCIL", "PENKIL"],
           correct: 0,
           explanation: "Tepat! Huruf S melengkapi PENSIL."
         },
         {
           title: "Pos 10: Menulis Kalimat Singkat",
           material: "Beri jarak (spasi) antar kata agar tulisan mudah dibaca.",
-          question: "Mengapa kita memberi spasi antar kata saat menulis?",
-          options: ["Agar tulisan rapi dan mudah dibaca", "Agar tulisan cepat habis", "Agar kertas penuh"],
+          question: "Tuliskan dua kata 'BACA BUKU' dengan spasi rapi di lembar kertas!",
+          options: ["BACA BUKU (Spasi rapi)", "BACABUKU (Tanpa spasi)", "B A C A B U K U"],
           correct: 0,
           explanation: "Benar! Spasi membuat kata terpisah rapi."
         },
         {
           title: "Pos 11: Menulis Huruf Konsonan Ganda 'NY'",
           material: "Suku kata NYA, NYI, NYU, NYE, NYO ditulis dengan dua huruf konsonan berdampingan.",
-          question: "Kata 'Nyanyi' diawali suku kata?",
+          question: "Tuliskan suku kata konsonan ganda 'NYA' pada lembar kertas!",
           options: ["NYA", "NYI", "NA"],
           correct: 0,
-          explanation: "Tepat! N-Y-A-N-Y-I diawali NYA."
+          explanation: "Tepat! N-Y-A adalah suku kata NYA."
         },
         {
           title: "Pos 12: Menulis Huruf Konsonan Ganda 'NG'",
           material: "BUNYI 'NG' terdapat pada kata bunga, mangga, kangkung.",
-          question: "Penulisan kata 'Bu _ _ a' yang tepat adalah?",
-          options: ["ng", "nk", "ny"],
+          question: "Tuliskan kata 'BUNGA' dengan huruf NG pada lembar kertas!",
+          options: ["BUNGA", "BUNKA", "BUNYA"],
           correct: 0,
-          explanation: "Benar! Bunga ditulis dengan NG."
+          explanation: "Benar! Bunga ditulis dengan huruf NG."
         },
         {
           title: "Pos 13: Menulis Kata Ulang 'KUPU-KUPU'",
           material: "Kata ulang ditulis menggunakan tanda hubung (-) di tengahnya.",
-          question: "Tanda baca di antara kata 'Kupu' dan 'Kupu' adalah?",
-          options: ["Tanda Hubung (-)", "Tanda Titik (.)", "Tanda Koma (,)"],
+          question: "Tuliskan kata ulang 'KUPU-KUPU' memakai tanda hubung (-)!",
+          options: ["KUPU-KUPU", "KUPU KUPU", "KUPUKUPU"],
           correct: 0,
-          explanation: "Tepat! Menggunakan tanda hubung (-)."
+          explanation: "Tepat! Menggunakan tanda hubung (-) di tengahnya."
         },
         {
           title: "Pos 14: Menulis Kalimat Perintah Sederhana",
           material: "Kalimat perintah diakhiri dengan tanda seru (!). Contoh: Duduklah!",
-          question: "Tanda baca di akhir kata 'Buka bukumu' sebagai perintah adalah?",
-          options: ["!", ".", "?"],
+          question: "Tuliskan kata perintah 'BUKA!' lengkap dengan tanda seru (!)",
+          options: ["BUKA!", "BUKA.", "BUKA?"],
           correct: 0,
           explanation: "Benar! Menggunakan tanda seru (!)."
         },
         {
           title: "🚩 Pos 15: Puncak Guratan Cerdas",
           material: "Gabungkan huruf kapital, spasi rapi, dan tanda titik di akhir kalimat.",
-          question: "Manakah tulisan kalimat yang paling sempurna dan rapi?",
-          options: ["Saya suka membaca buku.", "saya suka membaca buku", "Saya Suka Membaca Buku"],
+          question: "Tuliskan kalimat lengkap 'Saya membaca buku.' pada lembar kertas!",
+          options: ["Saya membaca buku.", "saya membaca buku", "Saya Membaca Buku"],
           correct: 0,
           explanation: "Hebat! Huruf awal kapital, spasi teratur, dan diakhiri titik."
         }
@@ -641,15 +641,15 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 1: Menulis Kalimat S-P-O",
           material: "Kalimat efektif minimal memiliki Subjek (pelaku), Predikat (kegiatan), dan Objek.",
-          question: "Susunan tulisan 'Ibu - memasak - nasi' memenuhi pola?",
-          options: ["Subjek - Predikat - Objek", "Predikat - Subjek - Objek", "Objek - Subjek - Predikat"],
+          question: "Tuliskan kalimat 'Ibu memasak nasi.' pada lembar kertas!",
+          options: ["Ibu memasak nasi.", "ibu memasak nasi", "Ibu Memasak Nasi"],
           correct: 0,
           explanation: "Benar! Ibu (S), memasak (P), nasi (O)."
         },
         {
           title: "Pos 2: Menulis Huruf Kapital Nama Hari & Bulan",
           material: "Nama hari dan bulan ditulis awal huruf besar: Senin, Maret, Oktober.",
-          question: "Penulisan hari dan bulan yang tepat adalah?",
+          question: "Tuliskan nama hari 'Senin, 17 Agustus' dengan huruf kapital rapi!",
           options: ["Senin, 17 Agustus", "senin, 17 agustus", "Senin, 17 agustus"],
           correct: 0,
           explanation: "Tepat! 'Senin' dan 'Agustus' diawali huruf besar."
@@ -657,7 +657,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 3: Menulis Kata Depan Tempat 'di'",
           material: "Kata 'di' yang menunjukkan tempat ditulis TERPISAH. Contoh: di pasar, di rumah.",
-          question: "Penulisan tempat yang benar adalah?",
+          question: "Tuliskan kata depan tempat 'di kebun' terpisah pada lembar kertas!",
           options: ["di kebun", "dikebun", "di-kebun"],
           correct: 0,
           explanation: "Benar! Kata depan tempat ditulis terpisah."
@@ -665,7 +665,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 4: Menulis Imbuhan 'me-' pada Kata 'baca'",
           material: "Kata dasar 'baca' ditambah 'me-' menjadi 'membaca'.",
-          question: "Imbuhan 'me-' + 'baca' menjadi tulisan?",
+          question: "Tuliskan kata berimbuhan 'Membaca' pada lembar kertas!",
           options: ["Membaca", "Mebaca", "Mem-baca"],
           correct: 0,
           explanation: "Tepat! Me- + baca = membaca."
@@ -673,7 +673,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 5: Menulis Tanda Koma (,) dalam Rincian",
           material: "Gunakan tanda koma (,) untuk memisahkan barang dalam rincian.",
-          question: "Penulisan rincian buah yang tepat adalah?",
+          question: "Tuliskan rincian 'Apel, jeruk, dan pisang' memakai koma!",
           options: ["Apel, jeruk, dan pisang", "Apel dan jeruk dan pisang", "Apel jeruk pisang"],
           correct: 0,
           explanation: "Benar! Memakai koma dan 'dan' di akhir rincian."
@@ -681,7 +681,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 6: Menulis Kata Depan 'ke'",
           material: "Kata depan 'ke' untuk arah tempat ditulis terpisah: ke sekolah, ke pasar.",
-          question: "Penulisan arah tujuan yang benar adalah?",
+          question: "Tuliskan tujuan 'ke sekolah' secara terpisah pada lembar kertas!",
           options: ["ke sekolah", "kesekolah", "ke-sekolah"],
           correct: 0,
           explanation: "Tepat! 'ke' diikuti tempat ditulis terpisah."
@@ -689,7 +689,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 7: Menulis Kalimat Tanya",
           material: "Kalimat tanya ditulis dengan kata tanya (Apa, Siapa, Di mana) & akhiran tanda tanya (?).",
-          question: "Tulisan kalimat tanya yang benar adalah?",
+          question: "Tuliskan kalimat tanya 'Di mana rumahmu?' dengan tanda tanya!",
           options: ["Di mana rumahmu?", "Di mana rumahmu.", "Dimana rumahmu!"],
           correct: 0,
           explanation: "Benar! Diawali kata tanya dan diakhiri (?)."
@@ -697,7 +697,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 8: Menulis Kalimat Ajakan 'Ayo'",
           material: "Gunakan 'Ayo' atau 'Mari' untuk menulis ajakan positif.",
-          question: "Tulisan kalimat ajakan menjaga kebersihan?",
+          question: "Tuliskan kalimat ajakan 'Ayo menjaga kebersihan!' pada lembar kertas!",
           options: ["Ayo menjaga kebersihan!", "Jangan kotor!", "Siapa yang menyapu?"],
           correct: 0,
           explanation: "Tepat! Menggunakan kata 'Ayo'."
@@ -705,7 +705,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 9: Menulis Kata Berimbuhan 'ber-'",
           material: "Imbuhan 'ber-' + 'main' = 'bermain'.",
-          question: "Imbuhan 'ber-' + 'lari' ditulis?",
+          question: "Tuliskan kata 'Berlari' pada lembar kertas!",
           options: ["Berlari", "Belari", "Ber-lari"],
           correct: 0,
           explanation: "Benar! 'Ber' + 'lari' = berlari."
@@ -713,7 +713,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 10: Menulis Kata Sapaan Rapi",
           material: "Kata sapaan diawali huruf besar: Selamat pagi, Selamat siang.",
-          question: "Penulisan kata sapaan pagi yang benar?",
+          question: "Tuliskan kata sapaan 'Selamat pagi, Budi!' dengan tanda baca rapi!",
           options: ["Selamat pagi, Budi!", "selamat pagi budi", "SELAMAT PAGI BUDI"],
           correct: 0,
           explanation: "Tepat! Diawali huruf kapital dan diberi koma."
@@ -721,7 +721,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 11: Menyusun Kalimat Acak menjadi Rapi",
           material: "Susun kata acak: [buku - Budi - membaca - perpustakaan - di]",
-          question: "Susunan tulisan kalimat yang logis dan rapi adalah?",
+          question: "Tuliskan susunan kalimat 'Budi membaca buku di perpustakaan.' di kertas!",
           options: ["Budi membaca buku di perpustakaan.", "Membaca Budi buku di perpustakaan.", "Di perpustakaan Budi buku membaca."],
           correct: 0,
           explanation: "Benar! S-P-O Keterangan Tempat teratur."
@@ -729,7 +729,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 12: Menulis Kata Berawalan 'pe-'",
           material: "Pe- + lukis = pelukis (orang yang melukis).",
-          question: "Kata 'tulis' jika mendapat awalan 'pen-' menjadi?",
+          question: "Tuliskan kata profesi 'Penulis' di lembar kertas!",
           options: ["Penulis", "Pentulis", "Pelulis"],
           correct: 0,
           explanation: "Tepat! Pen- + tulis = penulis."
@@ -737,7 +737,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 13: Menulis Kalimat Berita",
           material: "Kalimat berita memberikan informasi dan diakhiri tanda titik (.).",
-          question: "Tuliskan kalimat berita yang benar:",
+          question: "Tuliskan kalimat berita 'Hujan turun dengan deras.' di kertas!",
           options: ["Hujan turun dengan deras.", "Hujan turun dengan deras?", "hujan turun deras"],
           correct: 0,
           explanation: "Benar! Huruf kapital diawal, diakhiri titik."
@@ -745,7 +745,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "Pos 14: Menulis Puisi Pendek",
           material: "Puisi disusun berbait-bait dengan baris indah.",
-          question: "Setiap baris dalam tulisan puisi disebut?",
+          question: "Tuliskan kata 'Bait' atau 'Larik' pada lembar kertas!",
           options: ["Bait / Larik", "Paragraf", "Bab"],
           correct: 0,
           explanation: "Tepat! Baris puisi disebut larik."
@@ -753,7 +753,7 @@ export const CURRICULUM: CurriculumType = {
         {
           title: "🚩 Pos 15: Puncak Karangan Sederhana",
           material: "Gabungkan 3 kalimat menjadi satu paragraf cerita mini yang padu.",
-          question: "Manakah penulisan paragraf mini yang saling berurutan?",
+          question: "Tuliskan urutan cerita 'Pada hari Minggu, Budi pergi ke pantai.' di kertas!",
           options: ["Pada hari Minggu, Budi pergi ke pantai. Ia bermain pasir. Hatinya sangat gembira.", "Budi bermain pasir. Ia pergi ke pantai. Pada hari Minggu.", "Pantai itu indah. Budi membaca buku. Ibu memasak."],
           correct: 0,
           explanation: "Hebat! Kalimat-kalimatnya runtut dan padu."

@@ -129,12 +129,29 @@ export const HandwritingPad: React.FC<HandwritingPadProps> = ({ onCanvasChange }
     setPenPos(null);
   };
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e.cancelable) e.preventDefault();
+    startDrawing(e);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e.cancelable) e.preventDefault();
+    draw(e);
+  };
+
   return (
     <View style={styles.container}>
       {/* Header Info */}
       <View style={styles.boxHeader}>
-        <Text style={styles.boxTitle}>✒️ KOTAK PENA & LEMBAR KERTAS MENULIS</Text>
-        <Text style={styles.boxSubtitle}>Geser pena di atas kertas untuk menulis jawaban tanganmu!</Text>
+        <View style={styles.titleRow}>
+          <Text style={styles.boxTitle}>✒️ KOTAK PENA & LEMBAR KERTAS MENULIS</Text>
+          <View style={[styles.statusBadge, hasWritten ? styles.statusBadgeDone : styles.statusBadgeEmpty]}>
+            <Text style={styles.statusBadgeText}>
+              {hasWritten ? '✍️ Ada Tulisan' : '⚪ Kertas Kosong'}
+            </Text>
+          </View>
+        </View>
+        <Text style={styles.boxSubtitle}>Tuliskan / coretkan jawabanmu di lembar kertas di bawah ini!</Text>
       </View>
 
       {/* Pen Toolbox Controls */}
@@ -238,15 +255,15 @@ export const HandwritingPad: React.FC<HandwritingPadProps> = ({ onCanvasChange }
           onMouseMove={draw}
           onMouseUp={stopDrawing}
           onMouseLeave={stopDrawing}
-          onTouchStart={startDrawing}
-          onTouchMove={draw}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
           onTouchEnd={stopDrawing}
         />
 
         {/* Watermark helper overlay when canvas is empty */}
         {!hasWritten && (
           <View style={styles.watermarkOverlay} pointerEvents="none">
-            <Text style={styles.watermarkText}>✍️ Geser pena di sini untuk menulis...</Text>
+            <Text style={styles.watermarkText}>✍️ Geser pena / jarimu di sini untuk menulis...</Text>
           </View>
         )}
       </View>
@@ -271,12 +288,40 @@ const styles = StyleSheet.create({
   boxHeader: {
     marginBottom: 8,
     alignItems: 'center',
+    width: '100%',
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    flexWrap: 'wrap',
+    gap: 6,
   },
   boxTitle: {
     fontSize: 13,
     fontWeight: 'bold',
     color: '#92400e',
     letterSpacing: 0.5,
+  },
+  statusBadge: {
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 12,
+    borderWidth: 1,
+  },
+  statusBadgeDone: {
+    backgroundColor: '#d1fae5',
+    borderColor: '#10b981',
+  },
+  statusBadgeEmpty: {
+    backgroundColor: '#f1f5f9',
+    borderColor: '#cbd5e1',
+  },
+  statusBadgeText: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#0f172a',
   },
   boxSubtitle: {
     fontSize: 11,

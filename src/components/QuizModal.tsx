@@ -36,10 +36,44 @@ export const QuizModal: React.FC<QuizModalProps> = ({
 }) => {
   if (!visible || !positionData) return null;
 
+  const [hasWrittenCanvas, setHasWrittenCanvas] = React.useState(false);
+  const [writingWarning, setWritingWarning] = React.useState<string | null>(null);
+  const [selectedOptionIndex, setSelectedOptionIndex] = React.useState<number | null>(null);
+
   const catIcon = category === 'Membaca' ? '📖' : category === 'Menulis' ? '✏️' : '🔢';
   const isLastPos = currentPosIndex >= isTotalPositions - 1;
+  const isWritingCategory = category === 'Menulis' || category.toLowerCase().includes('tulis');
 
-  // Shuffled options using Math.random() whenever modal opens
+  // Reset canvas & option state on position/modal change
+  useEffect(() => {
+    setHasWrittenCanvas(false);
+    setWritingWarning(null);
+    setSelectedOptionIndex(null);
+  }, [positionData, visible, feedbackShown]);
+
+  const handleWritingSubmit = () => {
+    if (!hasWrittenCanvas) {
+      audioManager.playWrongSFX();
+      setWritingWarning('✏️ Kertas tulis masih kosong! Tuliskan/coret dulu jawabanmu di lembar kertas di atas.');
+      return;
+    }
+
+    if (selectedOptionIndex === null) {
+      audioManager.playWrongSFX();
+      setWritingWarning('👇 Pilihlah opsi jawaban A, B, atau C di bawah yang sesuai dengan tulisan tanganmu sebelum mengirim!');
+      return;
+    }
+
+    const isCorrect = selectedOptionIndex === shuffledData.correctIndex;
+    if (isCorrect) {
+      audioManager.playCorrectSFX();
+    } else {
+      audioManager.playWrongSFX();
+    }
+    onSelectOption(isCorrect);
+  };
+
+  // Shuffled options stably generated per positionData
   const shuffledData = useMemo(() => {
     if (!positionData || !positionData.options || positionData.options.length === 0) {
       return { options: [], correctIndex: 0 };
@@ -50,10 +84,21 @@ export const QuizModal: React.FC<QuizModalProps> = ({
       isCorrect: idx === positionData.correct,
     }));
 
-    // Fisher-Yates Shuffle with true Math.random() for dynamic rotation on every session/open
+    // Deterministic shuffle based on question string so indices remain rock-solid across re-renders
     const shuffled = [...items];
+    let seed = 0;
+    const keyStr = (positionData.title || '') + (positionData.question || '');
+    for (let i = 0; i < keyStr.length; i++) {
+      seed = (seed << 5) - seed + keyStr.charCodeAt(i);
+      seed |= 0;
+    }
+    const pseudoRandom = () => {
+      const x = Math.sin(seed++) * 10000;
+      return x - Math.floor(x);
+    };
+
     for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(pseudoRandom() * (i + 1));
       const temp = shuffled[i];
       shuffled[i] = shuffled[j];
       shuffled[j] = temp;
@@ -65,7 +110,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({
       options: shuffled.map((item) => item.text),
       correctIndex,
     };
-  }, [positionData, visible, feedbackShown]);
+  }, [positionData]);
 
   // Render heart emojis
   const renderHearts = () => {
@@ -95,6 +140,12 @@ export const QuizModal: React.FC<QuizModalProps> = ({
 
         if (selectedIdx >= 0 && selectedIdx < shuffledData.options.length) {
           e.preventDefault();
+          if (isWritingCategory && !hasWrittenCanvas) {
+            audioManager.playWrongSFX();
+            setWritingWarning('✏️ Kamu belum menulis di lembar kertas! Tuliskan/coret dulu jawabanmu di atas kertas.');
+            return;
+          }
+          setSelectedOptionIndex(selectedIdx);
           const isCorrect = selectedIdx === shuffledData.correctIndex;
           if (isCorrect) {
             audioManager.playCorrectSFX();
@@ -135,8 +186,8 @@ export const QuizModal: React.FC<QuizModalProps> = ({
           style={{
             width: '100%',
             maxWidth: 620,
-            maxHeight: '90vh',
-            height: '90vh',
+            maxHeight: '92dvh',
+            height: '92dvh',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
@@ -187,22 +238,67 @@ export const QuizModal: React.FC<QuizModalProps> = ({
                     </View>
 
                     <View style={styles.questionCard3D}>
-                      <Text style={styles.questionLabel}>❓ Pertanyaan:</Text>
+                      <Text style={styles.questionLabel}>
+                        {isWritingCategory ? '✍️ PERINTAH MENULIS TANGAN:' : '❓ PERTANYAAN:'}
+                      </Text>
                       <Text style={styles.questionText}>{positionData.question}</Text>
                     </View>
 
-                    {(category === 'Menulis' || category.toLowerCase().includes('tulis')) && (
-                      <HandwritingPad />
+                    {isWritingCategory && (
+                      <View style={{ width: '100%', marginBottom: 16 }}>
+                        <HandwritingPad
+                          onCanvasChange={(hasContent) => {
+                            setHasWrittenCanvas(hasContent);
+                            if (hasContent) setWritingWarning(null);
+                          }}
+                        />
+
+                        {writingWarning && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                          >
+                            <View style={styles.warningBox}>
+                              <Text style={styles.warningText}>{writingWarning}</Text>
+                            </View>
+                          </motion.div>
+                        )}
+
+                        <TouchableOpacity
+                          style={styles.submitWritingBtn}
+                          activeOpacity={0.8}
+                          onPress={handleWritingSubmit}
+                          // @ts-ignore - web click fallback
+                          onClick={handleWritingSubmit}
+                        >
+                          <Text style={styles.submitWritingBtnText}>
+                            🚀 KIRIM HASIL TULISAN SAYA
+                          </Text>
+                        </TouchableOpacity>
+                      </View>
                     )}
 
                     <View style={styles.optionsList}>
                       <Text style={styles.writingOptionTitle}>
-                        👇 Pilihan Jawaban (Gulir / Scroll ke bawah jika belum terlihat):
+                        {isWritingCategory
+                          ? '👇 Pilihlah opsi jawaban A, B, atau C di bawah ini yang sesuai dengan tulisan tanganmu:'
+                          : '👇 Pilihan Jawaban (Pilih salah satu):'}
                       </Text>
                       {shuffledData.options.map((opt, i) => {
                         const letter = String.fromCharCode(65 + i);
                         const isThisCorrect = i === shuffledData.correctIndex;
+                        const isSelected = selectedOptionIndex === i;
+
                         const handleOptionPress = () => {
+                          if (isWritingCategory && !hasWrittenCanvas) {
+                            audioManager.playWrongSFX();
+                            setWritingWarning('✏️ Kamu belum menulis di lembar kertas! Tuliskan/coret dulu jawabanmu di kertas di atas sebelum memilih.');
+                            return;
+                          }
+
+                          setSelectedOptionIndex(i);
+                          setWritingWarning(null);
+
                           if (isThisCorrect) {
                             audioManager.playCorrectSFX();
                           } else {
@@ -210,6 +306,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({
                           }
                           onSelectOption(isThisCorrect);
                         };
+
                         return (
                           <motion.div
                             key={i}
@@ -218,13 +315,21 @@ export const QuizModal: React.FC<QuizModalProps> = ({
                             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                           >
                             <TouchableOpacity
-                              style={styles.optionButton3D}
+                              style={[
+                                styles.optionButton3D,
+                                isSelected && styles.optionButtonSelected3D,
+                              ]}
                               activeOpacity={0.8}
                               onPress={handleOptionPress}
                               // @ts-ignore - web click fallback
                               onClick={handleOptionPress}
                             >
-                              <View style={styles.letterBadge3D}>
+                              <View
+                                style={[
+                                  styles.letterBadge3D,
+                                  isSelected && styles.letterBadgeSelected3D,
+                                ]}
+                              >
                                 <Text style={styles.letterText}>{letter}</Text>
                               </View>
                               <Text style={styles.optionText}>{opt}</Text>
@@ -463,6 +568,11 @@ const styles = StyleSheet.create({
     boxShadow:
       '0 6px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
   },
+  optionButtonSelected3D: {
+    borderColor: '#38bdf8',
+    backgroundColor: 'rgba(14, 165, 233, 0.35)',
+    boxShadow: '0 0 18px rgba(56, 189, 248, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.4)',
+  },
   letterBadge3D: {
     width: 36,
     height: 36,
@@ -473,6 +583,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+  },
+  letterBadgeSelected3D: {
+    backgroundColor: '#f59e0b',
+    borderColor: '#fef08a',
   },
   letterText: {
     color: '#ffffff',
@@ -558,5 +672,38 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '900',
     color: '#ffffff',
+  },
+  submitWritingBtn: {
+    backgroundColor: '#10b981',
+    borderColor: '#a7f3d0',
+    borderWidth: 2,
+    borderRadius: 20,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    marginTop: 10,
+    cursor: 'pointer',
+    boxShadow: '0 8px 16px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3)',
+  },
+  submitWritingBtnText: {
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#ffffff',
+    letterSpacing: 0.5,
+  },
+  warningBox: {
+    backgroundColor: 'rgba(239, 68, 68, 0.25)',
+    borderColor: '#f87171',
+    borderWidth: 1.5,
+    borderRadius: 14,
+    padding: 10,
+    marginVertical: 8,
+    alignItems: 'center',
+  },
+  warningText: {
+    color: '#fecdd3',
+    fontSize: 13,
+    fontWeight: '800',
+    textAlign: 'center',
   },
 });

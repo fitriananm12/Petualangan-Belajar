@@ -50,7 +50,7 @@ export const GradeScreen: React.FC<GradeScreenProps> = ({
               initial={{ opacity: 0, scale: 0.85, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.3, delay: idx * 0.08 }}
-              style={{ width: '45%', minWidth: 160, maxWidth: 260 }}
+              style={{ width: '46%', minWidth: 125, maxWidth: 260 }}
             >
               <Tilt3DCard
                 maxTilt={12}
@@ -108,13 +108,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 20,
+    gap: 12,
     width: '100%',
   },
   card3D: {
     backgroundColor: 'rgba(15, 23, 42, 0.82)',
-    borderRadius: 24,
-    padding: 24,
+    borderRadius: 20,
+    padding: 16,
     alignItems: 'center',
     borderWidth: 2,
     borderColor: 'rgba(56, 189, 248, 0.3)',

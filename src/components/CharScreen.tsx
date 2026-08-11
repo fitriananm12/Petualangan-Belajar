@@ -55,7 +55,7 @@ export const CharScreen: React.FC<CharScreenProps> = ({
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.08 }}
-                style={{ width: '45%', minWidth: 150, maxWidth: 220 }}
+                style={{ width: '46%', minWidth: 125, maxWidth: 220 }}
               >
                 <Tilt3DCard
                   maxTilt={12}
@@ -146,14 +146,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 20,
+    gap: 12,
     width: '100%',
-    marginBottom: 28,
+    marginBottom: 20,
   },
   card3D: {
     backgroundColor: 'rgba(15, 23, 42, 0.8)',
-    borderRadius: 24,
-    padding: 20,
+    borderRadius: 20,
+    padding: 14,
     alignItems: 'center',
     borderWidth: 2,
     borderColor: 'rgba(255, 255, 255, 0.15)',
