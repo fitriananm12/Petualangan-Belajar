@@ -1,0 +1,6 @@
+{
+  "name": "Petualangan Belajar",
+  "description": "Aplikasi petualangan belajar SD (Membaca, Menghitung, & Menulis) dengan game eksplorasi peta dan kuis interaktif.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
